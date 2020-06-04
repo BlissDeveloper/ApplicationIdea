@@ -1,2 +1,3 @@
+include ':uilibrary'
 include ':app'
 rootProject.name = "ApplicationIdea"

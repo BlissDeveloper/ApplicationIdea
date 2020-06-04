@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.applicationidea.R;
 
+
 public class LoginFragment extends Fragment {
     private View mView;
     private EditText editTextEmail, editTextPassword;
