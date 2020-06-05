@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "883134735275",
+    "firebase_url": "https://app-idea-6415a.firebaseio.com",
+    "project_id": "app-idea-6415a",
+    "storage_bucket": "app-idea-6415a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883134735275:android:65d8999ea92a4bb68728ee",
+        "android_client_info": {
+          "package_name": "com.example.applicationidea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883134735275-bsim5c7lv7kevnq5c1rofn3qe17ovm3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOHEMhTJ7cwsbbOofyaEnvn2sXiKOsM6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883134735275-bsim5c7lv7kevnq5c1rofn3qe17ovm3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
