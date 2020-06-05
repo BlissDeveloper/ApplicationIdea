@@ -13,9 +13,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.applicationidea.R;
+import com.example.uilibrary.Utils;
 
 
 public class LoginFragment extends Fragment {
+    private Utils utils;
+
     private View mView;
     private EditText editTextEmail, editTextPassword;
     private Button buttonSubmit;
@@ -30,15 +33,24 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_login, container, false);
 
-        editTextEmail = mView.findViewById(R.id.editTextEmail);
-        editTextPassword = mView.findViewById(R.id.editTextPassword);
-        buttonSubmit = mView.findViewById(R.id.buttonSubmitMain);
+        utils = new Utils(getActivity());
+
+        initViews();
 
         return mView;
     }
 
-    public void loadFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, fragment);
-        fragmentTransaction.commit();
+    public void initViews() {
+        editTextEmail = mView.findViewById(R.id.editTextEmail);
+        editTextPassword = mView.findViewById(R.id.editTextPassword);
+        buttonSubmit = mView.findViewById(R.id.buttonSubmitMain);
+        textViewNewUser = mView.findViewById(R.id.textViewNewUser);
+
+        textViewNewUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                utils.loadFragment(R.id.frameLayoutMain, new NewUserFragment());
+            }
+        });
     }
 }

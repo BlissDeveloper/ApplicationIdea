@@ -8,8 +8,11 @@ import android.os.Bundle;
 
 import com.example.applicationidea.R;
 import com.example.applicationidea.fragments.LoginFragment;
+import com.example.uilibrary.Utils;
 
 public class MainActivity extends AppCompatActivity {
+    private Utils utils;
+
     private LoginFragment loginFragment;
 
     @Override
@@ -17,13 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        utils = new Utils(MainActivity.this);
+
         loginFragment = new LoginFragment();
 
-        loadFragment(loginFragment);
-    }
-
-    public void loadFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, fragment);
-        fragmentTransaction.commit();
+        utils.loadFragment(R.id.frameLayoutMain, loginFragment);
     }
 }
