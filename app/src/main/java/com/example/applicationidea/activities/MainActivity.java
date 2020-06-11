@@ -1,17 +1,15 @@
 package com.example.applicationidea.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
 import com.example.applicationidea.R;
 import com.example.applicationidea.fragments.LoginFragment;
-import com.example.uilibrary.Utils;
+import com.example.uilibrary.UiUtils;
 
 public class MainActivity extends AppCompatActivity {
-    private Utils utils;
+    private UiUtils uiUtils;
 
     private LoginFragment loginFragment;
 
@@ -20,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        utils = new Utils(MainActivity.this);
+        uiUtils = new UiUtils(MainActivity.this);
 
         loginFragment = new LoginFragment();
 
-        utils.loadFragment(R.id.frameLayoutMain, loginFragment);
+        uiUtils.loadFragment(R.id.frameLayoutMain, loginFragment);
     }
 }

@@ -7,10 +7,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-public class Utils {
+public class UiUtils {
     private Context context;
 
-    public Utils(Context context) {
+    public UiUtils(Context context) {
         this.context = context;
     }
 

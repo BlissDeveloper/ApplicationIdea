@@ -3,7 +3,6 @@ package com.example.applicationidea.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.applicationidea.R;
-import com.example.uilibrary.Utils;
+import com.example.uilibrary.UiUtils;
 
 
 public class LoginFragment extends Fragment {
-    private Utils utils;
+    private UiUtils uiUtils;
 
     private View mView;
     private EditText editTextEmail, editTextPassword;
@@ -33,7 +32,7 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_login, container, false);
 
-        utils = new Utils(getActivity());
+        uiUtils = new UiUtils(getActivity());
 
         initViews();
 
@@ -49,7 +48,7 @@ public class LoginFragment extends Fragment {
         textViewNewUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                utils.loadFragment(R.id.frameLayoutMain, new NewUserFragment());
+                uiUtils.loadFragment(R.id.frameLayoutMain, new NewUserFragment());
             }
         });
     }
