@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.applicationidea.R;
+import com.example.applicationidea.activities.UserInfoActivity;
+import com.example.applicationidea.singletons.UserEmailPassSingleton;
 import com.example.uilibrary.UiUtils;
 import com.example.utilslibrary.Constants;
 import com.example.utilslibrary.Utils;
@@ -41,6 +43,8 @@ public class NewUserFragment extends Fragment {
 
     private CallbackManager callbackManager;
 
+    private UserEmailPassSingleton userEmailPassSingleton;
+
     public NewUserFragment() {
         // Required empty public constructor
     }
@@ -53,10 +57,18 @@ public class NewUserFragment extends Fragment {
 
         uiUtils = new UiUtils(getActivity());
         utils = new Utils(getActivity());
+        userEmailPassSingleton = UserEmailPassSingleton.getInstance();
 
         initViews();
 
         return mView;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     public void initViews() {
@@ -103,15 +115,41 @@ public class NewUserFragment extends Fragment {
 
                 ArrayList<View> unpop = utils.getUnpopulatedViews(viewContentPair);
 
-                Log.d(Constants.TAG , "Unpop count: " + unpop.size());
+                if (unpop.size() > 0) {
+                    for (View view : unpop) {
+                        ((EditText) view).setError("");
+                    }
+                } else {
+                    if (!utils.isEmailValid(email) || !utils.isPasswordValid(pass1)) {
+                        if (!utils.isEmailValid(email)) {
+                            editTextEmail.setError(getString(R.string.email_invalid));
+                        }
+                        if (!utils.isPasswordValid(pass1)) {
+                            editTextPass1.setError(getString(R.string.password_invalid));
+                        }
+                    } else {
+                        if (!pass1.equals(pass2)) {
+                            editTextPass2.setError(getString(R.string.password_mismatch));
+                        } else {
+                            //Final
+                            Log.d(Constants.TAG, "All inputs are valid!");
+
+                            userEmailPassSingleton.setEmail(email);
+                            userEmailPassSingleton.setPass(pass1);
+
+                            goToUserInfo();
+                        }
+                    }
+
+                }
             }
         });
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+    public void goToUserInfo() {
+        Intent intent = new Intent(getActivity(), UserInfoActivity.class);
+        startActivity(intent);
     }
+
+
 }

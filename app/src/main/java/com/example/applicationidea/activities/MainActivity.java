@@ -1,6 +1,7 @@
 package com.example.applicationidea.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     private LoginFragment loginFragment;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
 
         loginFragment = new LoginFragment();
 
+        initViews();
+
         uiUtils.loadFragment(R.id.frameLayoutMain, loginFragment);
+    }
+
+    public void initViews() {
+        toolbar = findViewById(R.id.toolbarMain);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
     }
 }

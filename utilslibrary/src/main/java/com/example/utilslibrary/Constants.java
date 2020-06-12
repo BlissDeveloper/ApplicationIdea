@@ -9,5 +9,5 @@ public class Constants {
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     public static final Pattern PASSWORD_REGEX =
-            Pattern.compile("^(?=.*[0-9].*[0-9]).{8}$");
+            Pattern.compile("^(?=.*[a-z].*[a-z].*[a-z])(?=.*[0-9].*[0-9]).{6}$");
 }
