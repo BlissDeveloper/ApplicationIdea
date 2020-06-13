@@ -11,9 +11,18 @@
     <string name="confirm_pass">Confirm password</string>
     <string name="sign_up_email">Sign up using email</string>
 
+    <string name="tell_us_about">Tell Us About Yourself</string>
+    <string name="first_name">First name</string>
+    <string name="middle_name">Middle name (Optional)</string>
+    <string name="last_name">Last name</string>
+    <string name="dob">Date of birth (MM/DD/YY)</string>
+
     <!-- Error Messages-->
     <string name="email_invalid">Please enter a valid email address.</string>
     <string name="password_invalid">Password must have at least 8 characters, 2 numbers and 3 letters.</string>
     <string name="password_mismatch">Passwords do not match.</string>
+
+    <!-- Filters -->
+    <string name="name_filter">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ </string>
 
 </resources>
